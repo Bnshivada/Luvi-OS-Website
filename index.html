@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuviOS | Performance Unleashed</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #050505;
+            --accent-blue: #00d2ff;
+            --accent-purple: #9d50bb;
+            --text-white: #f5f5f5;
+            --text-dim: #a0a0a0;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Background Glow */
+        .glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 210, 255, 0.05) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        nav {
+            padding: 2rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 0.9;
+        }
+
+        .hero-sub {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border);
+            color: var(--text-white);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+
+        section {
+            padding: 5rem 10%;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--accent-blue);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .card h3 {
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .code-box {
+            background: #000;
+            padding: 1.5rem;
+            border-radius: 10px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.85rem;
+            color: #888;
+            border: 1px solid #222;
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .code-box::before {
+            content: "TDR_STABILITY_FIX.REG";
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #222;
+            padding: 2px 10px;
+            font-size: 0.7rem;
+            color: #555;
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #00ff00;
+            border-radius: 50%;
+            margin-right: 5px;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        footer {
+            padding: 3rem 10%;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
+            font-size: 0.8rem;
+        }
+
+        span.highlight {
+            color: var(--accent-blue);
+        }
+    </style>
+</head>
+<body>
+    <div class="glow"></div>
+    
+    <nav>
+        <div class="logo">LUVIOS</div>
+        <div style="font-size: 0.8rem; font-family: 'Roboto Mono'; color: var(--accent-blue);">
+            <span class="status-dot"></span> BUILD: v26.04-STABLE
+        </div>
+    </nav>
+
+    <header>
+        <h1>STILL <span class="highlight">FAST.</span><br>NOT BLUE.</h1>
+        <p class="hero-sub">Windows 10'un hantal yapısını cerrahi bir operasyonla temizledik. LuviOS; zirve oyun performansı ve TDR stabilitesi için tasarlandı.</p>
+        <div class="btn-group">
+            <a href="#" class="btn btn-primary">Download ISO</a>
+            <a href="https://github.com/Bnshivada/Luvi-OS" class="btn btn-secondary">Source Code</a>
+        </div>
+    </header>
+
+    <section id="features">
+        <div class="grid">
+            <div class="card">
+                <h3>01. TDR Stability</h3>
+                <p>Ekran kartı zaman aşımı hatalarına (VIDEO_TDR_FAILURE) karşı kernel seviyesinde gecikme yamaları içerir. Kırılgan GPU'lar için en stabil liman.</p>
+            </div>
+            <div class="card">
+                <h3>02. Ultra-Light</h3>
+                <p>Telemetry, Bloatware ve gereksiz servisler kökten kazındı. Sadece 7.2 GB disk kullanımı ve 600 MB boşta RAM tüketimi.</p>
+            </div>
+            <div class="card">
+                <h3>03. Gaming Core</h3>
+                <p>İşlemci zamanlaması ve GPU önceliği rekabetçi oyunlar için optimize edildi. Input lag (girdi gecikmesi) minimuma indirildi.</p>
+            </div>
+        </div>
+
+        <div class="code-box">
+            [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers]<br>
+            "TdrDelay"=dword:0000000a<br>
+            "TdrLevel"=dword:00000000<br>
+            <span style="color: #444;">// LuviOS Kernel Optimization Applied.</span>
+        </div>
+    </section>
+
+    <footer>
+        Developed with pride by <b>shivada</b> | 2026 LuviOS Open Source Project<br>
+        <small>This is a custom modification. Use at your own risk.</small>
+    </footer>
+</body>
+</html>
